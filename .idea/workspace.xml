@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a53e7389-8336-4b63-88f6-0a7a6b7b1b9c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1wo8AJDYKv4PY83DGiqlzC1LSWS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="PyScientificConfigurable" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/cfgs/ssl_large_miniimagenet-wrn-5.json" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\wf_EPNet\cfgs" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="hello" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="wf_EPNet" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hello.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.hello" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a53e7389-8336-4b63-88f6-0a7a6b7b1b9c" name="Default Changelist" comment="" />
+      <created>1629113435858</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629113435858</updated>
+      <workItem from="1629113442908" duration="30442000" />
+      <workItem from="1629377426893" duration="8123000" />
+      <workItem from="1629443324645" duration="12295000" />
+      <workItem from="1629637907228" duration="1324000" />
+      <workItem from="1629661627997" duration="11006000" />
+      <workItem from="1629785439755" duration="6295000" />
+      <workItem from="1629882975778" duration="30390000" />
+      <workItem from="1630052690634" duration="6948000" />
+      <workItem from="1630147604442" duration="32457000" />
+      <workItem from="1630411004758" duration="6054000" />
+      <workItem from="1630444489430" duration="59715000" />
+      <workItem from="1630946538815" duration="10914000" />
+      <workItem from="1631030503588" duration="3433000" />
+      <workItem from="1631089047742" duration="13243000" />
+      <workItem from="1631126801963" duration="842000" />
+      <workItem from="1631132930749" duration="4958000" />
+      <workItem from="1631142921675" duration="819000" />
+      <workItem from="1631146555037" duration="453000" />
+      <workItem from="1631151244701" duration="6156000" />
+      <workItem from="1631166963649" duration="8163000" />
+      <workItem from="1631295474761" duration="127000" />
+      <workItem from="1631624501882" duration="51000" />
+      <workItem from="1631691468558" duration="2400000" />
+      <workItem from="1632554963402" duration="448000" />
+      <workItem from="1634218954306" duration="2147000" />
+      <workItem from="1635769469034" duration="5662000" />
+      <workItem from="1635860178992" duration="7871000" />
+      <workItem from="1635929325950" duration="607000" />
+      <workItem from="1636017463984" duration="5655000" />
+      <workItem from="1636037169480" duration="614000" />
+      <workItem from="1636122790912" duration="108868000" />
+      <workItem from="1637329477682" duration="22107000" />
+      <workItem from="1637658671435" duration="11772000" />
+      <workItem from="1637737149777" duration="6012000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="393" y="52" key="#Deployment" timestamp="1635863371422">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="393" y="52" key="#Deployment/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1635863371422" />
+    <state x="1918" y="182" key="#Deployment/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1629381722045" />
+    <state x="393" y="52" key="#Notifications" timestamp="1629390869490">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="1918" y="182" key="#Notifications/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1629201817960" />
+    <state x="393" y="52" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1629390869490" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1637687979075">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1635863640935" />
+    <state x="1495" y="131" width="1662" height="778" key="DiffContextDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1631108764904" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1637687979075" />
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1636995615786">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1631099390118" />
+    <state x="2017" y="174" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1631108741347" />
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1636995615786" />
+    <state width="1323" height="157" key="GridCell.Tab.0.bottom" timestamp="1637684847524">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="253" key="GridCell.Tab.0.bottom/-1366.0.1366.728/0.0.1920.1040@-1366.0.1366.728" timestamp="1637500899939" />
+    <state width="1323" height="157" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1637677727185" />
+    <state width="1877" height="253" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1637658994287" />
+    <state width="1323" height="157" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1637684847524" />
+    <state width="1323" height="157" key="GridCell.Tab.0.center" timestamp="1637684847523">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="253" key="GridCell.Tab.0.center/-1366.0.1366.728/0.0.1920.1040@-1366.0.1366.728" timestamp="1637500899939" />
+    <state width="1323" height="157" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1637677727185" />
+    <state width="1877" height="253" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1637658994286" />
+    <state width="1323" height="157" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1637684847523" />
+    <state width="1323" height="157" key="GridCell.Tab.0.left" timestamp="1637684847523">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="253" key="GridCell.Tab.0.left/-1366.0.1366.728/0.0.1920.1040@-1366.0.1366.728" timestamp="1637500899938" />
+    <state width="1323" height="157" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1637677727185" />
+    <state width="1877" height="253" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1637658994286" />
+    <state width="1323" height="157" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1637684847523" />
+    <state width="1323" height="157" key="GridCell.Tab.0.right" timestamp="1637684847524">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="253" key="GridCell.Tab.0.right/-1366.0.1366.728/0.0.1920.1040@-1366.0.1366.728" timestamp="1637500899939" />
+    <state width="1323" height="157" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1637677727185" />
+    <state width="1877" height="253" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1637658994287" />
+    <state width="1323" height="157" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1637684847524" />
+    <state x="1829" y="165" key="SettingsEditor" timestamp="1637649486950">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1829" y="165" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1637649486950" />
+    <state x="329" y="19" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1629390892487" />
+    <state x="24" y="77" width="1182" height="553" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1636997853124">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="24" y="77" width="1182" height="553" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1635863640935" />
+    <state x="1495" y="131" width="1662" height="778" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1636896101702" />
+    <state x="24" y="77" width="1182" height="553" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1636997853124" />
+    <state x="460" y="106" width="626" height="515" key="find.popup" timestamp="1630865898909">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="398" y="100" width="626" height="515" key="find.popup/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1629891913555" />
+    <state x="2013" y="152" width="626" height="735" key="find.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1629204175174" />
+    <state x="460" y="106" width="626" height="515" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1630865898909" />
+    <state x="2204" y="257" key="ftp.server.browser" timestamp="1629381719403">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2204" y="257" key="ftp.server.browser/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1629381719403" />
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1636466525421">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1636466525421" />
+    <state x="1989" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1636294479345" />
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1636351610991" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/models/ssl_wrapper.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/wf_EPNet$hello.coverage" NAME="hello Coverage Results" MODIFIED="1637680060625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
