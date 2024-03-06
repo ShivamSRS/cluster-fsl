@@ -44,7 +44,7 @@ def MultiFactorClustering(episode_dict, n_loops=10, lam = 0.01):
     S = episode_dict["support_so_far"]["samples"].copy()
     Q = episode_dict["query"]["samples"].copy()
     U = episode_dict["unlabeled"]["samples"].copy()
-
+    nan_det_flag = False
     nb_support, dim = S.shape
     nb_query, dim = Q.shape
     nb_unlabeled, dim = U.shape
@@ -80,6 +80,12 @@ def MultiFactorClustering(episode_dict, n_loops=10, lam = 0.01):
         A_labels = dist.T.argmin(axis=1)
 
         for j in range(n_classes):
+            # if A[A_labels == j].shape[0]==0:
+            #     X_centers[j]= np.mean(S[S_labels == j], axis=0)
+            #     if nan_det_flag==False:
+            #         nan_det_flag = True
+            #         print("Nan values found during clustering")
+            # else:
             X_centers[j] = np.mean(A[A_labels == j], axis=0)
 
         if pre == dist.mean():
@@ -105,7 +111,7 @@ def MultiFactorClustering_logit(S, Q, S_labels, n_classes, n_loops=10, lam = 0.0
     A = torch.cat([S, Q], dim=0)
     n_classes = int(S_labels.max() + 1)
     nb_sample = int(nb_support/n_classes)
-
+    nan_det_flag=False
 
     X_centers = torch.zeros((n_classes, d)).cuda()
 
@@ -113,6 +119,8 @@ def MultiFactorClustering_logit(S, Q, S_labels, n_classes, n_loops=10, lam = 0.0
     with torch.no_grad():
         for cls in range(n_classes):
             X_centers[cls] = torch.mean(S[S_labels == cls], dim=0)
+        # print("inside MFC X-center only with support",X_centers)
+        # exit()
         for i in range(n_loops):
             ## all class
             X = []
@@ -127,25 +135,52 @@ def MultiFactorClustering_logit(S, Q, S_labels, n_classes, n_loops=10, lam = 0.0
             beta = P.mm(A.t()).view(n_classes, -1, nb_query+nb_support) ## C*n
             code_x = torch.zeros((n_classes, d, nb_query+nb_support)).cuda()
             X = X.t().view(n_classes, -1, d)
+
             for cls in range(n_classes):
                 code_x[cls] = X[cls].t().mm(beta[cls])
             err = A.t() - code_x
+            
             ##
 
             dist = torch.sum(err ** 2, dim=1)  # C*n
+            
             # A_logits =
 
             _, A_labels = dist.t().min(dim=1)
-
+            # print("A",A,"A_labels",A_labels,dist,"codex",code_x)
             for j in range(n_classes):
+                # print(i,j,torch.mean(A[A_labels == j], dim=0))
+                # if A[A_labels == j].shape[0]==0:
+                #     if nan_det_flag==False:
+                #         nan_det_flag = True
+                #         print("Nan values found during clustering")
+                #     X_centers[j]= torch.mean(S[S_labels == j], dim=0)
+                # else:
                 X_centers[j] = torch.mean(A[A_labels == j], dim=0)
 
+                # print(i,j,A[A_labels == j].shape,X_centers[j].shape)
+            # print("isnide mfc after loop no {}".format(i),"X",X,"beta",beta,"code_x",code_x,"A",A,"dist",dist,A_labels,"Xcenter",X_centers,sep="\n")
+            # print("X center",X_centers)
             if pre == dist.mean():
                 break
             else:
                 pre = dist.mean()
+            # print(pre)
+            # if i==2:
+            #     exit()
+    # print("inside mfc A",A,A_labels,torch.mean(A[A_labels == 0], dim=0))
+    # exit()
     for j in range(n_classes):
+        # if A[A_labels == j].shape[0]==0:
+        #     if nan_det_flag==False:
+        #             nan_det_flag = True
+        #             print("Nan values found during clustering")
+        #     X_centers[j]= torch.mean(S[S_labels == j], dim=0)
+        # else:
         X_centers[j] = torch.mean(A[A_labels == j], dim=0)
+        # X_centers[j] = torch.mean(A[A_labels == j], dim=0)
+    # print("inside mfc Xcenter and S",X_centers,S)
+    # # exit()
     X = []
     for cls in range(n_classes):
         X.append(S.t()[:, S_labels == cls])  # ith class labeled data
@@ -154,17 +189,25 @@ def MultiFactorClustering_logit(S, Q, S_labels, n_classes, n_loops=10, lam = 0.0
     I = torch.eye(int((nb_sample + 1) * n_classes)).cuda()
     P = X.t().mm(X) + lam * I  # FT*F + lambda*I
     P = torch.inverse(P).mm(X.t())
+    # print("inside mfc P and X",P,X)
+    # exit()
     beta = P.mm(Q.t()).view(n_classes, -1, nb_query)
     code_x = torch.zeros((n_classes, d, nb_query)).cuda()
     X = X.t().view(n_classes, -1, d)
+    # print("inside mfc X and beta",X,beta)
+    # exit()
     for cls in range(n_classes):
         code_x[cls] = X[cls].t().mm(beta[cls])
+    # print("inside mfc Q and code_x",Q,code_x)
+    # exit()
     err = Q.t() - code_x
     ##
-
+    # print("inside mfc err",err)
+    # exit()
     dist = torch.sum(err ** 2, dim=1)
 
-
+    # print("inside mfc dist",dist)
+    # exit()
     Q_logits = dist.t()
     Q_logits = -torch.log(Q_logits)
     Q_logits = torch.softmax(Q_logits / 0.1, dim=1)

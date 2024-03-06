@@ -170,14 +170,19 @@ class FinetuneWrapper(BaseWrapper):
         embeddings_q = embeddings_all[support_size * nclasses:(support_size + query_size)*nclasses, ...]
 
         support_labels = torch.arange(nclasses).repeat(support_size).cuda()
-
+        # print("inputs to MFC clus embeddings as and q and support labels",embeddings_as,embeddings_q,support_labels)
+        # exit()
         Q_logits, Q_labels = MultiFactorClustering_logit(embeddings_as, embeddings_q, support_labels, nclasses, n_loops=10)
+        # print("Q logits and labels",Q_logits,Q_labels)
+        # exit()
         ###
         loss = 0
         if self.exp_dict["classification_weight"] > 0:
             loss += F.cross_entropy(self.model.classifier(embeddings.view(a, b)), labels.view(-1)) * self.exp_dict["classification_weight"]
 
         query_labels = torch.arange(nclasses, device=Q_logits.device).view(1, nclasses).repeat(query_size, 1).view(-1)
+        # print("this is logits",logits,"this is Q logits",Q_logits,sep= "\n")
+        # exit()
         loss += self.exp_dict["mfc_weight"] * F.cross_entropy(Q_logits, query_labels) * self.exp_dict["few_shot_weight"]
         loss += (1-self.exp_dict["mfc_weight"])* F.cross_entropy(logits, query_labels) * self.exp_dict["few_shot_weight"]
 
@@ -230,6 +235,7 @@ class FinetuneWrapper(BaseWrapper):
         logits = self.predict_on_batch(batch)
 
         query_labels = torch.arange(nclasses, device=logits.device).view(1, nclasses).repeat(query_size, 1).view(-1)
+        
         loss = F.cross_entropy(logits, query_labels)
         accuracy = float(logits.max(-1)[1].eq(query_labels).float().mean())
         
@@ -247,9 +253,13 @@ class FinetuneWrapper(BaseWrapper):
         # Iterate through tasks, each iteration loads n tasks, with n = number of GPU
         self.optimizer.zero_grad()
         for batch_idx, batch in enumerate(tqdm(data_loader, ncols=80, ascii='->')):
+            # print("#######",batch)
             loss = self.train_on_batch(batch) / self.exp_dict["tasks_per_batch"]
             train_loss_meter.update(float(loss), 1)
             loss.backward()
+            # print("This is weight of first conv block",self.model.group_3.shortcut.weight,"grad",self.model.group_3.shortcut.weight.grad,sep="\n")
+            # print(loss)
+            # exit()
             if ((batch_idx + 1) % self.exp_dict["tasks_per_batch"]) == 0:
                 self.optimizer.step()
                 self.optimizer.zero_grad()

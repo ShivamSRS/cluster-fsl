@@ -20,6 +20,14 @@ from .episodic_cub import EpisodicCUB
 from .episodic_tiered_imagenet import EpisodicTieredImagenet
 from .tiered_imagenet import RotatedNonEpisodicTieredImagenet, NonEpisodicTieredImagenet
 
+from .episodic_nct import  EpisodicNCTPkl
+from .nct import RotatedNonEpisodicNCTPkl
+
+from .episodic_blood import  EpisodicBloodPkl
+from .blood import RotatedNonEpisodicBloodPkl
+
+from .episodic_skin import  EpisodicSkinPkl
+from .skin import RotatedNonEpisodicSkinPkl
 
 def get_dataset(dataset_name, 
                 data_root,
@@ -81,6 +89,44 @@ def get_dataset(dataset_name,
                                          sampler=few_shot_sampler,
                                          size=n_iters,
                                          transforms=transform_func)
+    
+    elif dataset_name == "rotated_episodic_nct_pkl":
+        dataset = RotatedNonEpisodicNCTPkl(data_root=data_root,
+                                          split=split,
+                                          transforms=transform_func)
+    elif dataset_name == "episodic_nct_pkl":
+        few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
+        dataset = EpisodicNCTPkl(data_root=data_root,
+                                       split=split, 
+                                       sampler=few_shot_sampler,
+                                       size=n_iters,
+                                       transforms=transform_func)
+
+    elif dataset_name == "rotated_episodic_skin_pkl":
+        dataset = RotatedNonEpisodicSkinPkl(data_root=data_root,
+                                          split=split,
+                                          transforms=transform_func)
+    elif dataset_name == "episodic_skin_pkl":
+        few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
+        dataset = EpisodicSkinPkl(data_root=data_root,
+                                       split=split, 
+                                       sampler=few_shot_sampler,
+                                       size=n_iters,
+                                       transforms=transform_func)
+    
+
+    elif dataset_name == "rotated_episodic_blood_pkl":
+        dataset = RotatedNonEpisodicBloodPkl(data_root=data_root,
+                                          split=split,
+                                          transforms=transform_func)
+    elif dataset_name == "episodic_blood_pkl":
+        few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
+        dataset = EpisodicBloodPkl(data_root=data_root,
+                                       split=split, 
+                                       sampler=few_shot_sampler,
+                                       size=n_iters,
+                                       transforms=transform_func)
+
     return dataset
 
 
@@ -112,7 +158,7 @@ def get_transformer(transform, split):
 
     if transform == "basic":
         transform = torchvision.transforms.Compose([torchvision.transforms.ToPILImage(),
-                                                    torchvision.transforms.Resize((84,84)),
+                                                    torchvision.transforms.Resize((224,224)),
                                                     torchvision.transforms.ToTensor()])
 
         return transform 

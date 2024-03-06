@@ -55,7 +55,10 @@ class Resnet12(torch.nn.Module):
             is_support: whether the input is the support set (for non-transductive)
         """
         for i in range(len(self.widths)):
+            # print("inside uptoemvedding",x)
+            # exit()
             x = getattr(self, "group_%d" % i)(x, is_support)
+            
             x = F.max_pool2d(x, 3, 2, 1)
         return x
 
@@ -70,6 +73,7 @@ class Resnet12(torch.nn.Module):
         """
         *args, c, h, w = x.size()
         x = x.view(-1, c, h, w)
+        # print("\n x before embedidng",x)
         x = self.up_to_embedding(x, is_support)
 
         return F.relu(self.bn_out(x.mean(3).mean(2)), True)

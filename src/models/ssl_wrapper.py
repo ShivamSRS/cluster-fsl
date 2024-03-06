@@ -120,8 +120,11 @@ class SSLWrapper(BaseWrapper):
 
         tx = batch["support_set"].view(support_size, nclasses, c, h, w).cuda(non_blocking=True)
         vx = batch["query_set"].view(query_size, nclasses, c, h, w).cuda(non_blocking=True)
-        ux = batch["unlabeled_set"].view(batch["unlabeled_size"], nclasses, c, h, w).cuda(non_blocking=True)
-        x = torch.cat([tx, vx, ux], 0)
+        if batch["unlabeled_size"]!=0:
+            ux = batch["unlabeled_set"].view(batch["unlabeled_size"], nclasses, c, h, w).cuda(non_blocking=True)
+            x = torch.cat([tx, vx, ux], 0)
+        else:
+            x = torch.cat([tx, vx], 0)
         x = x.view(-1, c, h, w).cuda(non_blocking=True)
 
         if self.ngpu > 1:

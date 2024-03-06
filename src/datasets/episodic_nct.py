@@ -7,9 +7,9 @@ import pickle as pkl
 import sys
 # sys.path.append("../../src")
 # Inherit order is important, FewShotDataset constructor is prioritary
-class EpisodicMiniImagenet(EpisodicDataset):
+class EpisodicNCT(EpisodicDataset):
     tasks_type = "clss"
-    name = "miniimagenet"
+    name = "nct"
     episodic=True
     split_paths = {"train":"train", "valid":"val", "val":"val", "test": "test"}
     # c = 3
@@ -41,9 +41,10 @@ class EpisodicMiniImagenet(EpisodicDataset):
         return super().__iter__()
 
 # Inherit order is important, FewShotDataset constructor is prioritary
-class EpisodicMiniImagenetPkl(EpisodicDataset):
+import pylab
+class EpisodicNCTPkl(EpisodicDataset):
     tasks_type = "clss"
-    name = "miniimagenet"
+    name = "nct"
     episodic=True
     split_paths = {"train":"train", "valid":"val", "val":"val", "test": "test"}
     # c = 3
@@ -60,24 +61,30 @@ class EpisodicMiniImagenetPkl(EpisodicDataset):
             size: number of tasks to generate (int)
             disjoint: whether to create disjoint splits.
         """
-        self.data_root = os.path.join(data_root, "mini-imagenet-cache-%s.pkl")
+        self.data_root = os.path.join(data_root, "nct_%s.pickle")
         self.split = split
         # print("this is pkl data file")
         with open(self.data_root % self.split_paths[split], 'rb') as infile:
             data = pkl.load(infile)
         # print(data.keys(),data['image_data'].shape,data['class_dict'].keys(),data['class_dict']['n13133613'][-1])
-        # print(data.keys(),data['image_data'][0])
+        print(data.keys(),data['images'][0])
         # exit()
-        self.features = data["image_data"]
-        label_names = data["class_dict"].keys()
+        pylab.imshow(data['images'][0])
+        pylab.title(data['class_dict'][0])
+        pylab.show()
+        pylab.savefig('sample_episodic.png')
+        # exit()
+        self.features = data["images"]
+        label_names = np.unique(data["class_dict"])
+
         # print(label_names)
-        
-        labels = np.zeros((self.features.shape[0],), dtype=int)
-        # print(labels.shape)
+        labels= data["class_dict"]
+        # labels = np.zeros((self.features.shape[0],), dtype=int)
+        print(labels.shape)
         # exit()
-        for i, name in enumerate(sorted(label_names)):
-            # print(i,name,np.array(data['class_dict'][name]))
-            labels[np.array(data['class_dict'][name])] = i
+        # for i, name in enumerate(sorted(label_names)):
+        #     # print(i,name,np.array(data['class_dict'][name]))
+        #     labels[np.array(data['class_dict'][name])] = i
         # print(labels)
         # exit()
         del(data)
@@ -85,11 +92,16 @@ class EpisodicMiniImagenetPkl(EpisodicDataset):
         super().__init__(labels, sampler, size, transforms)
 
     def sample_images(self, indices):
+        # print(indices,self.features.shape)
+        # pylab.imshow(self.features[indices][0])
+        # pylab.title('sampled first indice')
+        # pylab.show()
+        # pylab.savefig('sample_episodic_firstindc.png')
         return self.features[indices]
 
     def __iter__(self):
         return super().__iter__()
-import pylab
+# import pylab
 
 def plot_episode(episode, classes_first=True):
     sample_set = episode["support_set"].cpu()
